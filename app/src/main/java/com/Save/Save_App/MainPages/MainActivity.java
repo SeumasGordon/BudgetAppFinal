@@ -1,6 +1,8 @@
 package com.Save.Save_App.MainPages;
 
 
+import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             handler.post(new Runnable() {
                 public void run() {
-                    startForegroundService(new Intent(getApplicationContext(), BackgroundService.class));
+                    startService(new Intent(getApplicationContext(), BackgroundService.class));
                 }
             });
         }
@@ -212,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         timer.schedule(timertask, 0, 86400000);
 
     }
